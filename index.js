@@ -1,8 +1,10 @@
 const express = require('express'),
+    https = require('https')
     cors = require('cors');    
     app = express(),
     testFolder = './nft_parts/',
-    fs = require('fs');
+    fs = require('fs'),
+    port = process.env.PORT || 8000;
 
 app.use(cors())
 app.use(express.json())
@@ -53,7 +55,7 @@ fs.readdir(testFolder, (err, files) => {
     // });
 });
 
- let server = app.listen(8000, function () {
+ let server = app.listen(port, function () {
     let host = server.address().address
     let port = server.address().port
     
