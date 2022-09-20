@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="pups" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
+<g id="filler-eyes-l">
+<g id="blacks">
+	
+		<ellipse transform="matrix(0.9933 -0.1156 0.1156 0.9933 -57.2757 70.4153)"  cx="578.7" cy="529.2" rx="36.2" ry="36.2"/>
+	
+		<ellipse transform="matrix(0.5361 -0.8441 0.8441 0.5361 -251.2988 601.1197)" cx="421.3" cy="529.2" rx="36.2" ry="36.2"/>
+</g>
+<g id="pupil">
+	
+		<ellipse transform="matrix(0.671 -0.7415 0.7415 0.671 -202.0011 603.1802)" cx="578.6" cy="529.2" rx="29.4" ry="29.4"/>
+	
+		<ellipse transform="matrix(0.2136 -0.9769 0.9769 0.2136 -185.7048 827.7018)" cx="421.3" cy="529.2" rx="29.4" ry="29.4"/>
+</g>
+<g id="pupil-L">
+	<ellipse cx="578.7" cy="547.2" rx="17.2" ry="11.4"/>
+	<ellipse cx="421.3" cy="547.2" rx="17.2" ry="11.4"/>
+</g>
+<g id="blacks">
+	<ellipse cx="578.7" cy="529.2" rx="6.6" ry="14.8"/>
+	<ellipse cx="421.3" cy="529.2" rx="6.6" ry="14.8"/>
+</g>
+<g id="whites">
+	<path d="M600.7,505.3c-2.7-2.7-8.9-0.8-13.8,4.1c-5,5-6.8,11.1-4.1,13.8s8.9,0.8,13.8-4.1
+		C601.5,514.1,603.4,507.9,600.7,505.3z"/>
+	<path d="M429.5,509.4c-5,5-6.8,11.1-4.1,13.8s8.9,0.8,13.8-4.1c4.9-5,6.8-11.2,4.1-13.8
+		C440.6,502.6,434.4,504.5,429.5,509.4z"/>
+</g>
+    </g>
+</svg>

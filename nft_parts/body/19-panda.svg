@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+<g id="Layer_1_1_">
+	<path id="blacks" fill="#705AD7" d="M707.8,747.8c-14.8-32.4-58-68.8-113.2-89.9c-6.5-46.4-46.4-82.2-94.6-82.2
+		s-88.1,35.7-94.6,82.2c-55.2,21.2-98.4,57.5-113.2,89.9c-19,41.6,110.2,41.1,110.2,41.1H500h97.6
+		C597.6,788.9,726.8,789.4,707.8,747.8z"/>
+</g>
+<g id="body_x3C_Clip_Group_x3E_">
+	<defs>
+		<path id="body_x3C_Clipping_Path_x3E_" d="M707.8,747.8c-14.8-32.4-58-68.8-113.2-89.9c-6.5-46.4-46.4-82.2-94.6-82.2
+			s-88.1,35.7-94.6,82.2c-55.2,21.2-98.4,57.5-113.2,89.9c-19,41.6,110.2,41.1,110.2,41.1H500h97.6
+			C597.6,788.9,726.8,789.4,707.8,747.8z"/>
+	</defs>
+	<clipPath id="body_x3C_Clipping_Path_x3E__1_">
+		<use xlink:href="#body_x3C_Clipping_Path_x3E_"  overflow="visible"/>
+	</clipPath>
+	<circle id="body-mask" clip-path="url(#body_x3C_Clipping_Path_x3E__1_)" fill="#705AD7" cx="5" cy="5" r="5"/>
+</g>
+</svg>

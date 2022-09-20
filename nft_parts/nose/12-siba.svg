@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g id="XMLID_650_">
+	<g>
+		<path id="skin" d="M538.5,597.5c0,34.1-17.3,15.6-38.5,15.6c-21.3,0-38.5,18.5-38.5-15.6s17.3-70.6,38.5-70.6
+			C521.3,526.9,538.5,563.4,538.5,597.5z"/>
+		<path id="nose" d="M523.3,586.1c0-8.6-10.4-18.7-23.3-18.7c-12.8,0-23.3,10.1-23.3,18.7c0,8.6,10.4,5.2,23.3,5.2
+			C512.8,591.3,523.3,594.8,523.3,586.1z"/>
+		<g id="blacks">
+			<path d="M516.2,579.6c-2.9-3-6.9-3.8-8.9-1.9c-2,2-1.2,6,1.7,9c2.9,3,6.9,3.8,8.9,1.9C519.9,586.6,519.1,582.6,516.2,579.6z"/>
+			<path d="M483.8,579.6c2.9-3,6.9-3.8,8.9-1.9c2,2,1.2,6-1.7,9c-2.9,3-6.9,3.8-8.9,1.9C480.1,586.6,480.8,582.6,483.8,579.6z"/>
+		</g>
+		<ellipse id="whites" cx="500" cy="570.7" rx="4.4" ry="1.5"/>
+	</g>
+</g>
+</svg>
