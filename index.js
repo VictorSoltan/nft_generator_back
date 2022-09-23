@@ -4,7 +4,7 @@ const express = require('express'),
     mainFolder = './nft_folders'
     testFolder = './nft_parts/',
     fs = require('fs'),
-    os = require('os'),
+    mongoose = require('mongoose'),
     multer  = require('multer'),
     upload = multer({ dest: "uploads/" }),
     unzipper = require('unzipper'),
@@ -12,6 +12,18 @@ const express = require('express'),
 
 app.use(cors())
 app.use(express.json())
+
+mongoose.connect("mongodb+srv://VictorSoltan:Password1!@cluster0.dc7dp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", (err) => {
+  if(!err) console.log('db connected')
+  else console.log(err)
+})
+
+const Stat = new mongoose.Schema({
+  favorites: Array,
+  elemLinks: Array
+})
+
+const NewModel = new mongoose.model("nftSchemes", Stat)
 
 app.get('/', function (req, res) {
     res.send('Hello World');
@@ -37,7 +49,7 @@ app.post('/get_folders', function (req, res) {
 
 app.post('/get_traits', function (req, res) {
     console.log(req.body.trait)
-    fs.readdir(testFolder+req.body.trait, (err, files) => {
+    fs.readdir(`./${mainFolder}/${req.body.folder}/${req.body.trait}`, (err, files) => {
         console.log(files)
         const newFiles = files.filter(file => file.split('.').pop() === 'svg')
         res.send(newFiles)
@@ -46,7 +58,7 @@ app.post('/get_traits', function (req, res) {
 })
 
 app.post('/get_trait', function(req, res) {
-    res.sendFile(`./nft_parts/${req.body.trait}/${req.body.file}`, { root: __dirname });
+    res.sendFile(`./${mainFolder}/${req.body.folder}/${req.body.trait}/${req.body.file}`, { root: __dirname });
 })
 
 app.post('/upload', upload.single('file'), async function(req, res) {
@@ -85,6 +97,53 @@ app.post('/deleteFolder', async function(req, res) {
         res.send(files)
         console.log(files)
     });
+})
+
+app.get('/elemLinks', async function(req, res){
+    let currentElemLink = await NewModel.find({})
+    if(currentElemLink[0]?.elemLinks) res.send(currentElemLink[0].elemLinks)
+})
+
+app.get('/favorites', async function(req, res){
+    let currentFavorites = await NewModel.find({})
+    console.log('currentFavorites', currentFavorites[0])
+    if(currentFavorites[0]?.favorites) res.send(currentFavorites[0].favorites)
+})
+
+app.post('/save_elemLinks', async function(req, res){
+    let currentElemLink = await NewModel.find({})
+
+    // console.log(currentElemLink)
+    if(currentElemLink.length){
+        console.log('if')
+        const elemLink = await NewModel.findOne({ elemLinks: currentElemLink[0].elemLinks });
+        elemLink.elemLinks = req.body.elemLinks
+        elemLink.save()
+    }else{
+        console.log('else')
+        const elemLink = NewModel({
+            elemLinks: req.body.elemLinks,
+        })
+        elemLink.save()
+    }
+})
+
+app.post('/save_favorites', async function(req, res){
+    let currentFavorites = await NewModel.find({})
+
+    // console.log(currentFavorites)
+    if(currentFavorites.length){
+        console.log('if')
+        const favorites = await NewModel.findOne({ favorites: currentFavorites[0].favorites });
+        favorites.favorites = req.body.favorites
+        favorites.save()
+    }else{
+        console.log('else')
+        const favorites = NewModel({
+            favorites: req.body.favorites,
+        })
+        favorites.save()
+    }
 })
 
  let server = app.listen(port, function () {
