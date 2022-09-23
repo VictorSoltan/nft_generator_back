@@ -88,62 +88,82 @@ app.post('/upload', upload.single('file'), async function(req, res) {
 });
 
 app.post('/deleteFolder', async function(req, res) {
-    console.log(req.body.folderName)
-    await fs.rmSync(mainFolder+'/'+req.body.folderName, { recursive: true, force: true });
+    try{
+        console.log(req.body.folderName)
+        await fs.rmSync(mainFolder+'/'+req.body.folderName, { recursive: true, force: true });
 
-    await new Promise(r => setTimeout(r, 1000));
+        await new Promise(r => setTimeout(r, 1000));
 
-    fs.readdir(mainFolder, (err, files) => {
-        res.send(files)
-        console.log(files)
-    });
+        fs.readdir(mainFolder, (err, files) => {
+            res.send(files)
+            console.log(files)
+        });
+    }catch(e){
+        console.log(e)
+    }
 })
 
 app.get('/elemLinks', async function(req, res){
-    let currentElemLink = await NewModel.find({})
-    if(currentElemLink[0]?.elemLinks) res.send(currentElemLink[0].elemLinks)
+    try{
+        let currentElemLink = await NewModel.find({})
+        if(currentElemLink[0]?.elemLinks) res.send(currentElemLink[0].elemLinks)
+    }catch(e){
+        console.log(e)
+    }
 })
 
 app.get('/favorites', async function(req, res){
-    let currentFavorites = await NewModel.find({})
-    console.log('currentFavorites', currentFavorites[0])
-    if(currentFavorites[0]?.favorites) res.send(currentFavorites[0].favorites)
+    try{
+        let currentFavorites = await NewModel.find({})
+        if(currentFavorites[0]?.favorites) res.send(currentFavorites[0].favorites)
+    }catch(e){
+        console.log(e)
+    }
 })
 
 app.post('/save_elemLinks', async function(req, res){
-    let currentElemLink = await NewModel.find({})
+    try{
 
-    // console.log(currentElemLink)
-    if(currentElemLink.length){
-        console.log('if')
-        const elemLink = await NewModel.findOne({ elemLinks: currentElemLink[0].elemLinks });
-        elemLink.elemLinks = req.body.elemLinks
-        elemLink.save()
-    }else{
-        console.log('else')
-        const elemLink = NewModel({
-            elemLinks: req.body.elemLinks,
-        })
-        elemLink.save()
+        let currentElemLink = await NewModel.find({})
+
+        // console.log(currentElemLink)
+        if(currentElemLink.length){
+            console.log('if')
+            const elemLink = await NewModel.findOne({ elemLinks: currentElemLink[0].elemLinks });
+            elemLink.elemLinks = req.body.elemLinks
+            elemLink.save()
+        }else{
+            console.log('else')
+            const elemLink = NewModel({
+                elemLinks: req.body.elemLinks,
+            })
+            elemLink.save()
+        }
+    }catch(e){
+        console.log(e)
     }
 })
 
 app.post('/save_favorites', async function(req, res){
-    let currentFavorites = await NewModel.find({})
+    try{
+        let currentFavorites = await NewModel.find({})
 
-    // console.log(currentFavorites)
-    if(currentFavorites.length){
-        console.log('if')
-        const favorites = await NewModel.findOne({ favorites: currentFavorites[0].favorites });
-        favorites.favorites = req.body.favorites
-        favorites.save()
-    }else{
-        console.log('else')
-        const favorites = NewModel({
-            favorites: req.body.favorites,
-        })
-        favorites.save()
-    }
+        // console.log(currentFavorites)
+        if(currentFavorites.length){
+            console.log('if')
+            const favorites = await NewModel.findOne({ favorites: currentFavorites[0].favorites });
+            favorites.favorites = req.body.favorites
+            favorites.save()
+        }else{
+            console.log('else')
+            const favorites = NewModel({
+                favorites: req.body.favorites,
+            })
+            favorites.save()
+        }
+    }catch(e){
+        console.log(e)
+    }        
 })
 
  let server = app.listen(port, function () {
