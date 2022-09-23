@@ -105,8 +105,8 @@ app.post('/deleteFolder', async function(req, res) {
 
 app.get('/elemLinks', async function(req, res){
     try{
-        let currentElemLink = await NewModel.find({})
-        if(currentElemLink[0]?.elemLinks) res.send(currentElemLink[0].elemLinks)
+        let currentFavorites = await NewModel.findOne({id: '632cf170a74e6d8e56cca145'})
+        res.send(currentFavorites.elemLinks)
     }catch(e){
         console.log(e)
     }
@@ -114,8 +114,9 @@ app.get('/elemLinks', async function(req, res){
 
 app.get('/favorites', async function(req, res){
     try{
-        let currentFavorites = await NewModel.find({})
-        if(currentFavorites[0]?.favorites) res.send(currentFavorites[0].favorites)
+        let currentFavorites = await NewModel.findOne({id: '632cf170a74e6d8e56cca145'})
+        console.log('currentFavorites2 ', currentFavorites)
+        res.send(currentFavorites.favorites)
     }catch(e){
         console.log(e)
     }
@@ -124,14 +125,13 @@ app.get('/favorites', async function(req, res){
 app.post('/save_elemLinks', async function(req, res){
     try{
 
-        let currentElemLink = await NewModel.find({})
+        let currentElemLink = await NewModel.findOne({id: '632cf170a74e6d8e56cca145'})
 
-        // console.log(currentElemLink)
-        if(currentElemLink.length){
+        console.log('currentElemLink123 ', currentElemLink)
+        if(currentElemLink){
             console.log('if')
-            const elemLink = await NewModel.findOne({ elemLinks: currentElemLink[0].elemLinks });
-            elemLink.elemLinks = req.body.elemLinks
-            elemLink.save()
+            currentElemLink.elemLinks = req.body.elemLinks
+            await currentElemLink.save()
         }else{
             console.log('else')
             const elemLink = NewModel({
@@ -145,21 +145,21 @@ app.post('/save_elemLinks', async function(req, res){
 })
 
 app.post('/save_favorites', async function(req, res){
+    console.log('req.body.favorites ', req.body.favorites)
     try{
-        let currentFavorites = await NewModel.find({})
+        let currentFavorites = await NewModel.findOne({id: '632cf170a74e6d8e56cca145'})
 
-        // console.log(currentFavorites)
-        if(currentFavorites.length){
+        console.log('currentFavorites123 ', currentFavorites)
+        if(currentFavorites){
             console.log('if')
-            const favorites = await NewModel.findOne({ favorites: currentFavorites[0].favorites });
-            favorites.favorites = req.body.favorites
-            favorites.save()
+            currentFavorites.favorites = req.body.favorites
+            await currentFavorites.save()
         }else{
             console.log('else')
             const favorites = NewModel({
                 favorites: req.body.favorites,
             })
-            favorites.save()
+            await favorites.save()
         }
     }catch(e){
         console.log(e)
