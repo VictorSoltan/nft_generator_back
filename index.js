@@ -124,7 +124,6 @@ app.get('/favorites', async function(req, res){
 
 app.post('/save_elemLinks', async function(req, res){
     try{
-
         let currentElemLink = await NewModel.findOne({id: '632cf170a74e6d8e56cca145'})
 
         console.log('currentElemLink123 ', currentElemLink)
