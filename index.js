@@ -20,12 +20,18 @@ mongoose.connect("mongodb+srv://VictorSoltan:Password1!@cluster0.dc7dp.mongodb.n
 })
 
 const Stat = new mongoose.Schema({
-  favorites: Array,
   elemLinks: Array
   
 })
 
-const NewModel = new mongoose.model("nftSchemes", Stat)
+const Favorites = new mongoose.Schema({
+    traits: Object, 
+    colorPreset: Number
+    
+  })
+
+const NewModel = new mongoose.model("nftSchemes", Stat),
+    NftFavorites = new mongoose.model("nftFavorites", Favorites)
 
 app.get('/', function (req, res) {
     res.send('Hello World');
@@ -120,9 +126,9 @@ app.get('/elemLinks', async function(req, res){
 
 app.get('/favorites', async function(req, res){
     try{
-        let currentFavorites = await NewModel.findOne({id: '632cf170a74e6d8e56cca145'})
+        let currentFavorites = await NftFavorites.find({})
         console.log('currentFavorites2 ', currentFavorites)
-        res.send(currentFavorites.favorites)
+        res.send(currentFavorites)
     }catch(e){
         console.log(e)
     }
@@ -150,12 +156,20 @@ app.post('/save_elemLinks', async function(req, res){
 })
 
 app.post('/save_favorites', async function(req, res){
-    console.log('req.body.favorites ', req.body.favorites)
     try{
-        let currentFavorites = await NewModel.findOne({id: '632cf170a74e6d8e56cca145'})
-        console.log('currentFavorites123 ', currentFavorites)
-        currentFavorites.favorites = req.body.favorites
-        await currentFavorites.save()
+        const favorite = NftFavorites({
+            traits: req.body.traits, 
+            colorPreset: req.body.colorPreset
+        })
+        await favorite.save()
+    }catch(e){
+        console.log(e)
+    }        
+})
+
+app.post('/delete_favorite', async function(req, res){
+    try{
+        await NftFavorites.deleteOne({ id: req.body.id });
     }catch(e){
         console.log(e)
     }        
