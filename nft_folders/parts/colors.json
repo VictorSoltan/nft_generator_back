@@ -1,7 +1,92 @@
 {
-  "Cardinal": {
+    "Cardinal": {
     "black": "#000000",
     "white": "#ffffff",
-    "BG": "#c80137" 
+    "BG": "#c80137"
+  },
+    "Orange": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#f48e26"
+  },
+    "Red": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#de1e15"
+  },
+    "Pistachio": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#7ac87d"
+  },
+    "Pissed yellow": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#e1db80"
+  },
+    "Pale pink": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#ffe2dd"
+  },
+    "Grey": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#606060"
+  },
+    "Viper green": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#16ad12"
+  },
+    "Raspberry": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#d32775"
+  },
+    "Terracotta": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#eb8681"
+  },
+    "Peachy": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#f6805e"
+  },
+    "Blue": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#2658f5"
+  },
+    "Rainy sea": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#0d4e79"
+  },
+    "Turquoise": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#65edff"
+  },
+    "Neon lime": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#87ff74"
+  },
+    "Khaki": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#e2c8a1"
+  },
+    "Purple": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#9101b7"
+  },
+    "Pale lime": {
+    "black": "#000000",
+    "white": "#ffffff",
+    "BG": "#adc133"
   }
 }

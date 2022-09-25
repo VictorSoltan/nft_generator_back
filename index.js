@@ -1,6 +1,7 @@
 const express = require('express'),
     cors = require('cors');    
     app = express(),
+    bodyParser = require('body-parser'); 
     mainFolder = './nft_folders'
     testFolder = './nft_parts/',
     fs = require('fs'),
@@ -21,6 +22,7 @@ mongoose.connect("mongodb+srv://VictorSoltan:Password1!@cluster0.dc7dp.mongodb.n
 const Stat = new mongoose.Schema({
   favorites: Array,
   elemLinks: Array
+  
 })
 
 const NewModel = new mongoose.model("nftSchemes", Stat)
@@ -61,6 +63,7 @@ app.post('/get_traits', function (req, res) {
 })
 
 app.post('/get_trait', function(req, res) {
+    console.log(`./${mainFolder}/${req.body.folder}/${req.body.trait}/${req.body.file}`)
     res.sendFile(`./${mainFolder}/${req.body.folder}/${req.body.trait}/${req.body.file}`, { root: __dirname });
 })
 
@@ -150,19 +153,9 @@ app.post('/save_favorites', async function(req, res){
     console.log('req.body.favorites ', req.body.favorites)
     try{
         let currentFavorites = await NewModel.findOne({id: '632cf170a74e6d8e56cca145'})
-
         console.log('currentFavorites123 ', currentFavorites)
-        if(currentFavorites){
-            console.log('if')
-            currentFavorites.favorites = req.body.favorites
-            await currentFavorites.save()
-        }else{
-            console.log('else')
-            const favorites = NewModel({
-                favorites: req.body.favorites,
-            })
-            await favorites.save()
-        }
+        currentFavorites.favorites = req.body.favorites
+        await currentFavorites.save()
     }catch(e){
         console.log(e)
     }        
