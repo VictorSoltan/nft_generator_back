@@ -39,12 +39,15 @@ app.get('/get_main_folders', function (req, res) {
 app.post('/get_folders', function (req, res) {
     console.log(mainFolder+'/'+req.body.folder)
     fs.readdir(mainFolder+'/'+req.body.folder, (err, files) => {
-        res.send(files)
-        console.log(files)
-        // files.forEach(file => {
-            // console.log(file);
-        // });
+
+        const newFolders = files.filter(file => fs.lstatSync(mainFolder+'/'+req.body.folder+'/'+file).isDirectory())
+        res.send(newFolders)
+        console.log(newFolders)
     });
+})
+
+app.post('/get_colors', function(req, res) {
+    res.sendFile(`./${mainFolder}/${req.body.folder}/colors.json`, { root: __dirname });
 })
 
 app.post('/get_traits', function (req, res) {
