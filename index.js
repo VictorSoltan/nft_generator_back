@@ -161,15 +161,18 @@ app.post('/save_favorites', async function(req, res){
             traits: req.body.traits, 
             colorPreset: req.body.colorPreset
         })
-        await favorite.save()
+        await favorite.save(function(err,elem) {
+            res.send(elem);
+         });
     }catch(e){
         console.log(e)
     }        
 })
 
 app.post('/delete_favorite', async function(req, res){
+    console.log('delete_favorite ', req.body._id)
     try{
-        await NftFavorites.deleteOne({ id: req.body.id });
+        await NftFavorites.findOneAndDelete({ _id: req.body._id });
     }catch(e){
         console.log(e)
     }        
