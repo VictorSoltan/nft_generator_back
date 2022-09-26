@@ -45,13 +45,18 @@ app.get('/get_main_folders', function (req, res) {
 })
 
 app.post('/get_folders', function (req, res) {
-    console.log(mainFolder+'/'+req.body.folder)
-    fs.readdir(mainFolder+'/'+req.body.folder, (err, files) => {
+    try{
+        console.log(mainFolder+'/'+req.body.folder)
+        fs.readdir(mainFolder+'/'+req.body.folder, (err, files) => {
+    
+            const newFolders = files.filter(file => fs.lstatSync(mainFolder+'/'+req.body.folder+'/'+file).isDirectory())
+            res.send(newFolders)
+            console.log(newFolders)
+        });
+    }catch(err){
+        console.log(err)
+    }
 
-        const newFolders = files.filter(file => fs.lstatSync(mainFolder+'/'+req.body.folder+'/'+file).isDirectory())
-        res.send(newFolders)
-        console.log(newFolders)
-    });
 })
 
 app.post('/get_colors', function(req, res) {
