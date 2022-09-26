@@ -7,7 +7,7 @@ const express = require('express'),
     fs = require('fs'),
     mongoose = require('mongoose'),
     multer  = require('multer'),
-    upload = multer({ dest: "./uploads/" }),
+    upload = multer({ dest: "uploads/" }),
     unzipper = require('unzipper'),
     port = process.env.PORT || 8000;
 
