@@ -46,13 +46,18 @@ app.get('/get_main_folders', function (req, res) {
 
 app.post('/get_folders', function (req, res) {
     try{
-        console.log(mainFolder+'/'+req.body.folder)
-        fs.readdir(mainFolder+'/'+req.body.folder, (err, files) => {
-    
-            const newFolders = files.filter(file => fs.lstatSync(mainFolder+'/'+req.body.folder+'/'+file).isDirectory())
-            res.send(newFolders)
-            console.log(newFolders)
-        });
+        if(req.body.folder){
+            console.log(mainFolder+'/'+req.body.folder)
+            console.log('new build')
+            fs.readdir(mainFolder+'/'+req.body.folder, (err, files) => {
+                if(files.length){
+                    const newFolders = files.filter(file => fs.lstatSync(mainFolder+'/'+req.body.folder+'/'+file).isDirectory())
+                    res.send(newFolders)
+                    console.log(newFolders)
+                }
+
+            });
+        }
     }catch(err){
         console.log(err)
     }
