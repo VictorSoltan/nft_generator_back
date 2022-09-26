@@ -2,12 +2,12 @@ const express = require('express'),
     cors = require('cors');    
     app = express(),
     bodyParser = require('body-parser'); 
-    mainFolder = './output'
+    mainFolder = '.output'
     testFolder = './nft_parts/',
     fs = require('fs'),
     mongoose = require('mongoose'),
     multer  = require('multer'),
-    upload = multer({ dest: "output/" }),
+    upload = multer({ dest: ".output/" }),
     unzipper = require('unzipper'),
     port = process.env.PORT || 8000;
 
