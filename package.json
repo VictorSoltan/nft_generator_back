@@ -9,7 +9,6 @@
     "unzipper": "^0.10.11"
   },
   "scripts": {
-    "start": "./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src"
+    "start": "node index.js"
   }
 }

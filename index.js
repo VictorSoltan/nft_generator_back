@@ -1,8 +1,7 @@
 const express = require('express'),
     cors = require('cors');    
-    // app = express(),
-    serverless = require("serverless-http"),
-    bodyParser = require('body-parser'), 
+    app = express(),
+    bodyParser = require('body-parser'); 
     mainFolder = './nft_folders'
     testFolder = './nft_parts/',
     fs = require('fs'),
@@ -12,8 +11,8 @@ const express = require('express'),
     unzipper = require('unzipper'),
     port = process.env.PORT || 8000;
 
-const app = express();
-const router = express.Router();
+app.use(cors())
+app.use(express.json())
 
 mongoose.connect("mongodb+srv://VictorSoltan:Password1!@cluster0.dc7dp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", (err) => {
   if(!err) console.log('db connected')
@@ -34,25 +33,18 @@ const Favorites = new mongoose.Schema({
 const NewModel = new mongoose.model("nftSchemes", Stat),
     NftFavorites = new mongoose.model("nftFavorites", Favorites)
 
-router.get('/', function (req, res) {
+app.get('/', function (req, res) {
     res.send('Hello World');
 })
 
-router.get('/test',(req,res) => {
-    res.json({
-        hello: "test!"
-      });
-
-})
-
-router.get('/get_main_folders', function (req, res) {
+app.get('/get_main_folders', function (req, res) {
     fs.readdir(mainFolder, (err, files) => {
         res.send(files)
         console.log(files)
     });
 })
 
-router.post('/get_folders', function (req, res) {
+app.post('/get_folders', function (req, res) {
     try{
         if(req.body.folder){
             console.log(mainFolder+'/'+req.body.folder)
@@ -71,11 +63,11 @@ router.post('/get_folders', function (req, res) {
 
 })
 
-router.post('/get_colors', function(req, res) {
+app.post('/get_colors', function(req, res) {
     res.sendFile(`./${mainFolder}/${req.body.folder}/colors.json`, { root: __dirname });
 })
 
-router.post('/get_traits', function (req, res) {
+app.post('/get_traits', function (req, res) {
     console.log(req.body.trait)
     fs.readdir(`./${mainFolder}/${req.body.folder}/${req.body.trait}`, (err, files) => {
         console.log(files)
@@ -85,12 +77,12 @@ router.post('/get_traits', function (req, res) {
 
 })
 
-router.post('/get_trait', function(req, res) {
+app.post('/get_trait', function(req, res) {
     console.log(`./${mainFolder}/${req.body.folder}/${req.body.trait}/${req.body.file}`)
     res.sendFile(`./${mainFolder}/${req.body.folder}/${req.body.trait}/${req.body.file}`, { root: __dirname });
 })
 
-router.post('/upload', upload.single('file'), async function(req, res) {
+app.post('/upload', upload.single('file'), async function(req, res) {
     try{
         console.log('/upload')
         // const title = req.body.title;
@@ -115,7 +107,7 @@ router.post('/upload', upload.single('file'), async function(req, res) {
 
 });
 
-router.post('/deleteFolder', async function(req, res) {
+app.post('/deleteFolder', async function(req, res) {
     try{
         console.log(req.body.folderName)
         await fs.rmSync(mainFolder+'/'+req.body.folderName, { recursive: true, force: true });
@@ -131,7 +123,7 @@ router.post('/deleteFolder', async function(req, res) {
     }
 })
 
-router.get('/elemLinks', async function(req, res){
+app.get('/elemLinks', async function(req, res){
     try{
         let currentFavorites = await NewModel.findOne({id: '632cf170a74e6d8e56cca145'})
         res.send(currentFavorites.elemLinks)
@@ -140,7 +132,7 @@ router.get('/elemLinks', async function(req, res){
     }
 })
 
-router.get('/favorites', async function(req, res){
+app.get('/favorites', async function(req, res){
     try{
         let currentFavorites = await NftFavorites.find({})
         console.log('currentFavorites2 ', currentFavorites)
@@ -150,7 +142,7 @@ router.get('/favorites', async function(req, res){
     }
 })
 
-router.post('/save_elemLinks', async function(req, res){
+app.post('/save_elemLinks', async function(req, res){
     try{
         let currentElemLink = await NewModel.findOne({id: '632cf170a74e6d8e56cca145'})
 
@@ -171,7 +163,7 @@ router.post('/save_elemLinks', async function(req, res){
     }
 })
 
-router.post('/save_favorites', async function(req, res){
+app.post('/save_favorites', async function(req, res){
     try{
         const favorite = NftFavorites({
             traits: req.body.traits, 
@@ -185,7 +177,7 @@ router.post('/save_favorites', async function(req, res){
     }        
 })
 
-router.post('/delete_favorite', async function(req, res){
+app.post('/delete_favorite', async function(req, res){
     console.log('delete_favorite ', req.body._id)
     try{
         await NftFavorites.findOneAndDelete({ _id: req.body._id });
@@ -194,7 +186,9 @@ router.post('/delete_favorite', async function(req, res){
     }        
 })
 
-app.use(`/.netlify/functions/api`, router);
-
-module.exports = app;
-module.exports.handler = serverless(app);
+ let server = app.listen(port, function () {
+    let host = server.address().address
+    let port = server.address().port
+    
+    console.log("Example app listening at http://%s:%s", host, port)
+ })
