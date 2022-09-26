@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="mouth" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFD7D7;}
+	.st1{fill:#570019;}
+	.st2{fill:#FFFFFF;}
+</style>
+<path id="skin2" 
+d="M555.5,596.8c0,11.8-24.8,43.1-55.5,43.1s-55.5-31.3-55.5-43.1c0-11.8,24.8-57.6,55.5-57.6
+	S555.5,585,555.5,596.8z"/>
+<path id="blacks"  
+d="M524.9,596.9c-5.6-3.7-14.7-7.7-24.9-7.7s-19.3,4-24.9,7.7c-9.7-3.5-16-7.2-16-4.7
+	c0,4.2,18.3,24.8,40.9,24.8s40.9-20.6,40.9-24.8C540.9,589.7,534.6,593.4,524.9,596.9z"/>
+<g id="whites">
+	<path 
+d="M500,601.9c-8,0-14.4-0.9-14.4-0.1c0,0.7,5.6,5.3,12.9,5.9c0.4-3.3,1-5.3,1.5-5.3s1.1,1.9,1.5,5.3
+		c7.2-0.6,12.9-5.2,12.9-5.9C514.4,601,508,601.9,500,601.9z"/>
+	
+		<ellipse transform="matrix(0.2055 -0.9787 0.9787 0.2055 -176.9391 969.4314)"  cx="508.6" cy="593.7" rx="1.2" ry="3.6"/>
+</g>
+</svg>

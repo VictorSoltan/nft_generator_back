@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="skin2-D" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+<symbol  id="грудь" viewBox="-25.6 -30.2 72.6 80.2">
+	<path fill="#B6D0FF" d="M47.1,36c0,5-12.3,14-36.3,14s-36.3-9-36.3-14c0-18.8,32.6-12.4,36.3-12.4C14.5,23.6,47.1,17.1,47.1,36z"/>
+	<path fill="#B6D0FF" d="M38.6,9.2c0,3.8-9.4,10.7-27.9,10.7S-17.1,13-17.1,9.2c0-14.4,25-9.5,27.9-9.5C13.6-0.3,38.6-5.3,38.6,9.2z
+		"/>
+	<path fill="#B6D0FF" d="M34.2-10.6c0,2.8-8,7.9-23.5,7.9c-15.5,0-23.5-5.1-23.5-7.9c0-10.7,21.1-7,23.5-7
+		C13.2-17.6,34.2-21.3,34.2-10.6z"/>
+	<path fill="#B6D0FF" d="M27.2-24.8c0,2-5.6,5.6-16.5,5.6s-16.5-3.6-16.5-5.6c0-7.5,14.8-4.9,16.5-4.9S27.2-32.3,27.2-24.8z"/>
+</symbol>
+<use xlink:href="#грудь"  width="72.6" height="80.2" id="XMLID_1032_" x="-25.6" y="-30.2" transform="matrix(1 0 0 -1 488.2381 691.0882)" overflow="visible"/>
+</svg>

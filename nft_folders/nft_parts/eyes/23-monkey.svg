@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="eyes" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
+
+<g id="blacks">
+	<path d="M424.6,461.1c-24.2,3.9-49.4,24.3-54.1,51.3c-5.9,34.1,23.3,64.7,60,57.4c35.8-7.1,54.1-44.3,46.7-74.8
+		C471.4,470.7,448.4,457.3,424.6,461.1z"/>
+	<path d="M629.5,512.5c-4.7-27.1-29.9-47.4-54.1-51.3c-23.8-3.8-46.8,9.6-52.7,34c-7.3,30.5,10.9,67.7,46.7,74.8
+		C606.1,577.1,635.4,546.5,629.5,512.5z"/>
+</g>
+<g id="eye-D">
+	<ellipse cx="422.7" cy="522.1" rx="46" ry="43.3"/>
+	<ellipse cx="577.3" cy="522.1" rx="46" ry="43.3"/>
+</g>
+<g id="eye">
+	<ellipse cx="423.7" cy="523.1" rx="42.7" ry="40.2"/>
+	<ellipse cx="576.3" cy="523.1" rx="42.7" ry="40.2"/>
+</g>
+<g id="eye-L">
+	<ellipse cx="424.8" cy="524.2" rx="39.3" ry="36.9"/>
+	<ellipse cx="575.2" cy="524.2" rx="39.3" ry="36.9"/>
+</g>
+<g id="r_x3C_Clip_Group_x3E_">
+	<defs>
+		<ellipse id="rpath" cx="577.3" cy="522.1" rx="46" ry="43.3"/>
+	</defs>
+	<clipPath id="rpath_1_">
+		<use xlink:href="#rpath"  overflow="visible"/>
+	</clipPath>
+	<circle id="eyes-mask-r" clip-path="url(#rpath_1_)" fill="#5D5D5D" cx="995" cy="3" r="5"/>
+</g>
+<g id="l_x3C_Clip_Group_x3E_">
+	<defs>
+		<ellipse id="lpath" cx="422.7" cy="522.1" rx="46" ry="43.3"/>
+	</defs>
+	<clipPath id="lpath_1_">
+		<use xlink:href="#lpath"  overflow="visible"/>
+	</clipPath>
+	<circle id="eyes-mask-l" clip-path="url(#lpath_1_)" fill="#5D5D5D" cx="5" cy="3" r="5"/>
+</g>
+</svg>
