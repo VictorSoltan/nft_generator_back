@@ -26,6 +26,7 @@ const Stat = new mongoose.Schema({
 })
 
 const Favorites = new mongoose.Schema({
+    mainFolder: String,
     traits: Object, 
     colorPreset: Number
     
@@ -49,9 +50,8 @@ app.post('/get_folders', function (req, res) {
     try{
         if(req.body.folder){
             console.log(mainFolder+'/'+req.body.folder)
-            console.log('new build')
             fs.readdir(mainFolder+'/'+req.body.folder, (err, files) => {
-                if(files.length){
+                if(files&&files.length){
                     const newFolders = files.filter(file => fs.lstatSync(mainFolder+'/'+req.body.folder+'/'+file).isDirectory())
                     res.send(newFolders)
                     console.log(newFolders)
@@ -134,9 +134,7 @@ app.get('/elemLinks', async function(req, res){
 
 app.get('/favorites', async function(req, res){
     try{
-        let currentFavorites = await NftFavorites.find({})
-        console.log('currentFavorites2 ', currentFavorites)
-        res.send(currentFavorites)
+        res.send(await NftFavorites.find({}))
     }catch(e){
         console.log(e)
     }
@@ -166,10 +164,11 @@ app.post('/save_elemLinks', async function(req, res){
 app.post('/save_favorites', async function(req, res){
     try{
         const favorite = NftFavorites({
+            mainFolder: req.body.mainFolder,
             traits: req.body.traits, 
             colorPreset: req.body.colorPreset
         })
-        await favorite.save(function(err,elem) {
+        await favorite.save(function(err, elem) {
             res.send(elem);
          });
     }catch(e){
