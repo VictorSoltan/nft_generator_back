@@ -13,6 +13,7 @@ const express = require('express'),
 
 app.use(cors())
 app.use(express.json())
+app.use(express.static(__dirname + '/nft_folders'))
 
 mongoose.connect("mongodb+srv://VictorSoltan:Password1!@cluster0.dc7dp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", (err) => {
   if(!err) console.log('db connected')
@@ -78,7 +79,6 @@ app.post('/get_traits', function (req, res) {
 })
 
 app.post('/get_trait', function(req, res) {
-    console.log(`./${mainFolder}/${req.body.folder}/${req.body.trait}/${req.body.file}`)
     res.sendFile(`./${mainFolder}/${req.body.folder}/${req.body.trait}/${req.body.file}`, { root: __dirname });
 })
 
